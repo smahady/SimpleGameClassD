@@ -1,18 +1,25 @@
+from SimpleGame.Scene import Scene
+from SimpleGame.Sprite import Sprite
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel
-#from PyQt5.QtGui import QIcon
-#from PyQt5.QtCore import pyqtSlot
+from PyQt5.QtWidgets import QApplication
 
 app = QApplication(sys.argv)
-widget = QWidget()
 
-textLabel = QLabel(widget)
-textLabel.setText("Hello World!")
-textLabel.move(110,85)
 
-widget.setGeometry(50,50,320,200) #window.geometry('320x200+50+50')
-widget.setWindowTitle("PyQt5 Example")	#window.title('Tk example')
-widget.show()
+
+class Game(Scene):
+	def __init__(self):
+		super().__init__(600,600)
+		self.spaceship = Sprite(self, "spaceship100.png", 100, 93)
+		
+	def updateGame(self):
+		print("My Update")
+		self.spaceship.x +=1
+		self.spaceship.update()
+
+myGame = Game()
+myGame.start()
+myGame.show()
 sys.exit(app.exec_())
 
 
