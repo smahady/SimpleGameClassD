@@ -40,7 +40,7 @@ class IEATTERMITES(Character):
 # Tian
 class MEEEEEE(Character):
 	def __init__(self, thisScene):
-		super().__init__(thisScene, "sprites/Tian_sprite.png" , 161, 125)
+		super().__init__(thisScene, "sprites/tian_sprite.png" , 161, 125)
 		self.x = 98
 		self.y = 30
 		self.dx = 3
@@ -51,7 +51,7 @@ class MEEEEEE(Character):
 #Jiayang
 class SQUID(Character):
 	def __init__(self, thisScene):
-		super().__init__(thisScene, "sprites/Jiayang_sprite.png", 112, 173)
+		super().__init__(thisScene, "sprites/jiayang_sprite.png", 112, 173)
 		self.x = 150
 		self.y = 150
 		self.dx = 4
@@ -63,7 +63,6 @@ class SQUID(Character):
 class Game(Scene):
 	def __init__(self):
 		super().__init__(600,600)
-		self.spaceship = Sprite(self, "spaceship100.png", 100, 93)
 		self.sean = Sean(self)
 		self.SQUID = SQUID(self)
 		self.MEEEEEE = MEEEEEE(self)
@@ -73,11 +72,10 @@ class Game(Scene):
 		
 	def updateGame(self):
 		print("My Update")
-		self.spaceship.x +=1
-		self.spaceship.update()
 		self.sean.update()
 		self.SQUID.update()
 		self.IEATTERMITES.update()
+		self.MEEEEEE.update()
 
 myGame = Game()
 myGame.start()
