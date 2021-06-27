@@ -11,13 +11,20 @@ class Character(Sprite):
 
 
 # sean mahady
+#250x100
+# 50, 50
 class Sean(Character):
 	def __init__(self, thisScene):
-		super().__init__(thisScene, "sprites/sean_sprite.png", 49, 55)
+		super().__init__(thisScene, "sprites/sean_sheet.png", 250, 100)
 		self.x = 100	
 		self.y = 100
 		self.dy = 1
 		self.boundAction = Scene.WRAP
+		self.loadAnimation(250, 100, 50, 50)
+		self.generateAnimationCycles()
+		self.setAnimationSpeed(100)
+		self.playAnimation()
+
 	def update(self):
 		if self.y > 400:
 			self.dy = 0
@@ -25,15 +32,20 @@ class Sean(Character):
 		super().update()	
 
 # newton's sprite
-# 28x32
+# 88x64
+# 29x32
 #Newton
 class slimy(Character):
 	def __init__(self, thisScene):
-		super().__init__(thisScene, "sprites/newton_sprite.png",28,32)
+		super().__init__(thisScene, "sprites/newton_sprite.png",88,64)
 		self.x = 150
 		self.y = 200
 		self.dy = 3
 		self.boundAction = Scene.WRAP
+		self.loadAnimation(88, 64, 29, 32)
+		self.generateAnimationCycles()
+		self.setAnimationSpeed(100)
+		self.playAnimation()
 	def update(self):
 		if self.y > 400:
 			self.dy = 0
@@ -60,15 +72,17 @@ class IEATTERMITES(Character):
     
  
 
-# 161x125
+# 400x144
+# 100x72
 # Tian
 class MEEEEEE(Character):
 	def __init__(self, thisScene):
-		super().__init__(thisScene, "sprites/tian_sprite.png" , 161, 125)
+		super().__init__(thisScene, "sprites/tian_sheet.png" , 400, 144)
 		self.x = 98
 		self.y = 30
 		self.dy = 4
 		self.boundAction = Scene.WRAP
+		self.loadanimation(400, 144 , 100, 72)
 	def update(self):
 		if self.y > 400:
 			self.dy = 0
