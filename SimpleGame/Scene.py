@@ -13,7 +13,6 @@ class Scene(QWidget):
 	CONTINUE = 5
 	
 	# key variables
-	# Scene.K_ESC <-- class variable
 	K_ESC = 27
 	K_SPACE = 32
 	K_PGUP = 33
@@ -27,9 +26,7 @@ class Scene(QWidget):
 	
 	# slope variables
 	SLOPE_RIGHT = True
-	SLOPE_LEFT = True	
-
-	# local, global, class, instance
+	SLOPE_LEFT = False	
 
 
 	def __init__(self, x=600, y=400, speed=33):
@@ -85,9 +82,14 @@ class Scene(QWidget):
 	def keyPressEvent(self, event):
 		for i in range(255):
 			if KeyTbl[i] == event.key():
-				self.boardKeysDown = True
+				self.boardKeysDown[i] = True
 		
 	def keyReleaseEvent(self, event):
 		for i in range(255):
 			if KeyTbl[i] == event.key():
-				self.boardKeysDown = False
+				self.boardKeysDown[i] = False
+
+	def changeBoundSize(self, newWidth, newHeight):
+		self.width = newWidth
+		self.height = newHeight
+
