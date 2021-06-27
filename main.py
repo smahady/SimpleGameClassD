@@ -16,7 +16,7 @@ class Character(Sprite):
 class Sean(Character):
 	def __init__(self, thisScene):
 		super().__init__(thisScene, "sprites/sean_sheet.png", 250, 100)
-		self.x = 100	
+		self.x = 75	
 		self.y = 100
 		self.dy = 1
 		self.boundAction = Scene.WRAP
@@ -38,7 +38,7 @@ class Sean(Character):
 class slimy(Character):
 	def __init__(self, thisScene):
 		super().__init__(thisScene, "sprites/newton_sprite.png",88,64)
-		self.x = 400
+		self.x = 350
 		self.y = 200
 		self.dy = 3
 		self.boundAction = Scene.WRAP
