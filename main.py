@@ -85,6 +85,7 @@ class MEEEEEE(Character):
 		self.loadAnimation(400, 144 , 100, 72)
 		self.generateAnimationCycles()
 		self.setAnimationSpeed(100)
+		self.playAnimation()
 	def update(self):
 		if self.y > 400:
 			self.dy = 0
