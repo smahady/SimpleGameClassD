@@ -20,10 +20,10 @@ class Sean(Character):
 		self.y = 100
 		self.dy = 1
 		self.boundAction = Scene.WRAP
-		self.loadAnimation(250, 100, 50, 50)
-		self.generateAnimationCycles()
-		self.setAnimationSpeed(100)
-		self.playAnimation()
+		self.loadAnimation(250, 100, 50, 50) 	# divides the sprite sheet into pieces
+		self.generateAnimationCycles() 	#sets up each "cylce" into rows
+		self.setAnimationSpeed(100)	#sets a QTimer to 100ms
+		self.playAnimation()	#starts the QTimer
 
 	def update(self):
 		if self.y > 400:
@@ -83,6 +83,8 @@ class MEEEEEE(Character):
 		self.dy = 4
 		self.boundAction = Scene.WRAP
 		self.loadAnimation(400, 144 , 100, 72)
+		self.generateAnimationCycles()
+		self.setAnimationSpeed(100)
 	def update(self):
 		if self.y > 400:
 			self.dy = 0
