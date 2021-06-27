@@ -37,7 +37,7 @@ class Sean(Character):
 #Newton
 class slimy(Character):
 	def __init__(self, thisScene):
-		super().__init__(thisScene, "sprites/newton_sprite.png",88,64)
+		super().__init__(thisScene, "sprites/newton_sheet.png",88,64)
 		self.x = 350
 		self.y = 200
 		self.dy = 3
