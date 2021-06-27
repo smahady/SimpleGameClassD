@@ -82,7 +82,7 @@ class MEEEEEE(Character):
 		self.y = 30
 		self.dy = 4
 		self.boundAction = Scene.WRAP
-		self.loadanimation(400, 144 , 100, 72)
+		self.loadAnimation(400, 144 , 100, 72)
 	def update(self):
 		if self.y > 400:
 			self.dy = 0
