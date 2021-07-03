@@ -248,7 +248,7 @@ class Game(Scene):
 		
 	def updateGame(self):
 		print("My Update")
-		self.b0.update()
+		self.bg0.update()
 		self.bg1.update()
 		self.bg2.update()
 		self.bg3.update()
