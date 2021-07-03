@@ -97,12 +97,12 @@ class Sean(Character):
 		self.state = States.FALLING	#falling
 
 	# Add a method called walkBehavior. 
-	# This should check if self.scene.keysDown[Scene.K_RIGHT]is True. If so self.facing to Facing.RIGHT, self.setCurrentCycle to Facing.RIGHT, call the self.playAnimation method. Set the DX to a value between 0 and 10
+	# This should check if self.scene.keysDown[Scene.K_RIGHT]is True. If so self.facing to 0, self.setCurrentCycle to 0, call the self.playAnimation method. Set the DX to a value between 0 and 10
 	# If not check if self.scene.keysDown[Scene.K_LEFT] is True. If so self.facing to Facing.RIGHT, self.setCurrentCycle to Facing.RIGHT, call the self.playAnimation method. Set the DX to a value between 0 and -10
 	def walkBehavior(self):
 		if self.scene.keysDown[Scene.K_RIGHT]:
 			self.facing = Facing.RIGHT
-			self.setCurrentCycle(Facing.RIGHT)
+			self.setCurrentCycle(0)
 			self.playAnimation()
 			self.dx = 4
 		elif self.scene.keysDown[K_LEFT]:
