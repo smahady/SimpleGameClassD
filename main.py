@@ -49,14 +49,13 @@ class Character(Sprite):
 		elif self.state == States.STAND or self.state == States.WALK:
 			if self.scene.keysDown[Scene.K_SPACE]:
 				self.jumpBehavior()
-		elif self.state == States.STAND:
 			if self.scene.keysDown[Scene.K_RIGHT] or self.scene.keysDown[Scene.K_LEFT]:
 				self.walkBehavior()
-		elif self.state == States.WALK:
-			if (self.facing == facing.RIGHT) and (self.scene.keysDown[Scene.K_RIGHT] != True):
-				self.standBehavior()
-			if (self.facing == facing.LEFT) and (self.scene.keysDown[Scene.K_LEFT] != True):
-				self.standBehavior()
+			if self.state == WALK:
+				if (self.facing == facing.RIGHT) and (self.scene.keysDown[Scene.K_RIGHT] != True):
+					self.standBehavior()
+				if (self.facing == facing.LEFT) and (self.scene.keysDown[Scene.K_LEFT] != True):
+					self.standBehavior()
 		elif self.state == States.JUMP:
 			self.stateTimer = self.stateTimer - 1
 			print("Timer: ", self.stateTimer)
