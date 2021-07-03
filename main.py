@@ -106,11 +106,13 @@ class Sean(Character):
 			self.setCurrentCycle(0)
 			self.playAnimation()
 			self.dx = 4
+			self.states = States.WALK
 		elif self.scene.keysDown[Scene.K_LEFT]:
 			self.facing = 1
 			self.setCurrentCycle(1)
 			self.playAnimation()
 			self.dx = -4
+			self.states = States.WALK
 
 	# Add a method called jumpBehavior. This should set the dy to a negative number (moving up), and set the stateTimer to the number of frames before falling.
 	def jumpBehavior(self):
