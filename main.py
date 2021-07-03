@@ -113,8 +113,8 @@ class Sean(Character):
 
 	# Add a method called jumpBehavior. This should set the dy to a negative number (moving up), and set the stateTimer to the number of frames before falling.
 	def jumpBehavior(self):
-		self.stateTimer = 50
-		self.dy = -5		
+		self.stateTimer = 25
+		self.dy = -4	
 
 '''# newton's sprite
 # 88x64
