@@ -1,6 +1,7 @@
 from SimpleGame.Scene import Scene
 from SimpleGame.Sprite import Sprite
 from SimpleGame.Block import Block
+from SimpleGame.Background import Background
 import sys
 from PyQt5.QtWidgets import QApplication
 from enum import Enum
