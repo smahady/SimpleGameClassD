@@ -58,7 +58,8 @@ class Character(Sprite):
 			if (self.facing == facing.LEFT) and (self.scene.keysDown[Scene.K_LEFT] != True):
 				self.standBehavior()
 		elif self.state == States.JUMP:
-			self.stateTimer -= 1
+			self.stateTimer = self.stateTimer - 1
+			print("Timer: ", self.stateTimer)
 			if self.stateTimer < 1:
 				self.dy = self.dy * -1
 				self.state = States.FALLING
