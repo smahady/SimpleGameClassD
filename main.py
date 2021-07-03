@@ -45,18 +45,18 @@ class Character(Sprite):
 		if self.state == States.FALLING:
 			if self.scene.ground.collidesWith(self):
 				self.y = self.scene.ground.y - (self.height/2 + self.scene.ground.height / 2)
-				self.standBehavior
+				self.standBehavior()
 		elif self.state == States.STAND or self.state == States.WALK:
 			if self.scene.keyDown[Scene.K_SPACE]:
-				self.jumpBehavior
+				self.jumpBehavior()
 		elif self.state == States.STAND:
 			if self.scene.keysDown[Scene.K_RIGHT] or self.scene.keysDown[Scene.K_LEFT]:
-				self.walkBehavior
+				self.walkBehavior()
 		elif self.state == States.WALK:
 			if (self.facing == facing.RIGHT) and (self.scene.keysDown[Scene.K_RIGHT] != True):
-				self.standBehavior
+				self.standBehavior()
 			if (self.facing == facing.LEFT) and (self.scene.keysDown[Scene.K_LEFT] != True):
-				self.standBehavior
+				self.standBehavior()
 		elif self.state == States.JUMP:
 			self.stateTimer -= 1
 			if self.stateTimer < 1:
