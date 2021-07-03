@@ -221,7 +221,7 @@ class Game(Scene):
 		self.SQUID = SQUID(self)
 		self.MEEEEEE = MEEEEEE(self)
 		self.IEATTERMITES = IEATTERMITES(self)
-		self.slimy = slimy(self)
+		# self.slimy = slimy(self)
 		
 
 		
@@ -231,7 +231,7 @@ class Game(Scene):
 		self.SQUID.update()
 		self.IEATTERMITES.update()
 		self.MEEEEEE.update()
-		self.slimy.update()
+		# self.slimy.update()
 
 myGame = Game()
 myGame.start()
