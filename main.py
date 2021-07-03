@@ -52,7 +52,6 @@ class Character(Sprite):
 			if self.scene.keysDown[Scene.K_RIGHT] or self.scene.keysDown[Scene.K_LEFT]:
 				self.walkBehavior()
 			if self.state == States.WALK:
-				print(self.scene.keysDown[Scene.K_RIGHT])
 				if (self.facing == facing.RIGHT) and (self.scene.keysDown[Scene.K_RIGHT] == False):
 					self.standBehavior()
 				if (self.facing == facing.LEFT) and (self.scene.keysDown[Scene.K_LEFT] == False):
