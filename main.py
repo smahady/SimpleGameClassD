@@ -144,7 +144,7 @@ class slimy(Character):
 # Cell: 80x60
 class IEATTERMITES(Character):
   def __init__(self,thisScene):
-    super().__init__(thisScene, "sprites/niuniu_sprite.png", 480, 240)
+    super().__init__(thisScene, "sprites/niuniu_sheet.png", 480, 240)
     self.x = 125
     self.y = 180
     self.dy = 10
@@ -171,7 +171,7 @@ class IEATTERMITES(Character):
 # Cell: 96 x 173
 class SQUID(Character):
 	def __init__(self, thisScene):
-		super().__init__(thisScene, "sprites/jiayang_sprite.png", 484, 346)
+		super().__init__(thisScene, "sprites/jiayang_sheet.png", 484, 346)
 		self.x = 150
 		self.y = 150
 		self.dx = 4
