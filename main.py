@@ -116,6 +116,7 @@ class Sean(Character):
 	def jumpBehavior(self):
 		self.stateTimer = 25
 		self.dy = -4	
+		self.state = States.
 
 '''# newton's sprite
 # 88x64
