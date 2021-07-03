@@ -51,7 +51,7 @@ class Character(Sprite):
 				self.jumpBehavior()
 			if self.scene.keysDown[Scene.K_RIGHT] or self.scene.keysDown[Scene.K_LEFT]:
 				self.walkBehavior()
-			if self.state == WALK:
+			if self.state == States.WALK:
 				if (self.facing == facing.RIGHT) and (self.scene.keysDown[Scene.K_RIGHT] != True):
 					self.standBehavior()
 				if (self.facing == facing.LEFT) and (self.scene.keysDown[Scene.K_LEFT] != True):
