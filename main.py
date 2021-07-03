@@ -86,7 +86,7 @@ class Sean(Character):
 		super().__init__(thisScene, "sprites/sean_sheet.png", 250, 100)
 		self.x = 75	
 		self.y = 100
-		self.dy = 1
+		self.dy = 10
 		self.boundAction = Scene.WRAP
 		self.loadAnimation(250, 100, 50, 50) 	# divides the sprite sheet into pieces
 		self.generateAnimationCycles() 	#sets up each "cylce" into rows
@@ -98,16 +98,16 @@ class Sean(Character):
 
 	# Add a method called walkBehavior. 
 	# This should check if self.scene.keysDown[Scene.K_RIGHT]is True. If so self.facing to 0, self.setCurrentCycle to 0, call the self.playAnimation method. Set the DX to a value between 0 and 10
-	# If not check if self.scene.keysDown[Scene.K_LEFT] is True. If so self.facing to Facing.RIGHT, self.setCurrentCycle to Facing.RIGHT, call the self.playAnimation method. Set the DX to a value between 0 and -10
+	# If not check if self.scene.keysDown[Scene.K_LEFT] is True. If so self.facing to 1, self.setCurrentCycle to 1, call the self.playAnimation method. Set the DX to a value between 0 and -10
 	def walkBehavior(self):
 		if self.scene.keysDown[Scene.K_RIGHT]:
-			self.facing = Facing.RIGHT
+			self.facing = 0
 			self.setCurrentCycle(0)
 			self.playAnimation()
 			self.dx = 4
 		elif self.scene.keysDown[K_LEFT]:
-			self.facing = Facing.LEFT
-			self.setCurrentCycle(Facing.LEFT)
+			self.facing = 1
+			self.setCurrentCycle(1)
 			self.playAnimation()
 			self.dx = -4
 
