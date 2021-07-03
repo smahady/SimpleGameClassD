@@ -215,6 +215,13 @@ class Game(Scene):
 	def __init__(self):
 		super().__init__(600,600)
 
+		super().__init__(600,600)
+		self.bg0 = Background(self, "sprites/parallax-forest-back-trees.png", 1020, 600, .25, 0)
+		self.bg1 = Background(self, "sprites/parallax-forest-middle-trees.png", 1020, 600, .5, 0)		
+		self.bg2 = Background(self, "sprites/parallax-forest-front-trees.png", 1020, 600, .75, 0)
+		self.bg3 = Background(self, "sprites/parallax-forest-lights.png", 1020, 600, 1, 0)		
+
+
 		self.ground = Ground(self)
 
 		self.sean = Sean(self)
