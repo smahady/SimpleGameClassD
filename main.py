@@ -166,7 +166,7 @@ class SQUID(Character):
 
 		# add loadAnimation, generateAnimation, setAnimationSpeed, and playAnimation methods
 		self.loadAnimation(484, 346, 96, 173)
-		self.generateAnimation()
+		self.generateAnimationCycles()
 		self.setAnimationSpeed(300)
 		self.playAnimation()
 	def update(self):
