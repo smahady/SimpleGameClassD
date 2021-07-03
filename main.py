@@ -63,6 +63,19 @@ class Character(Sprite):
 				self.state = States.FALLING
 		super().update()
 
+	def standBehavior(self):
+		self.dy = 0
+		self.dx = 0
+		self.state = States.STAND
+		self.pauseAnimation()
+
+	# override this in your Character
+	def jumpBehavior(self):
+		pass
+
+	# override this in your Character
+	def walkBehavior(self):
+		pass
 
 # sean mahady
 #250x100
