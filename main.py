@@ -53,9 +53,9 @@ class Character(Sprite):
 				self.walkBehavior()
 			if self.state == States.WALK:
 				print(self.scene.keysDown[Scene.K_RIGHT])
-				if (self.facing == Facing.RIGHT) and (self.scene.keysDown[Scene.K_RIGHT] == False):
+				if (self.facing == Facing.RIGHT) and (self.scene.keysDown[Scene.K_RIGHT] == None):
 					self.standBehavior()
-				if (self.facing == Facing.LEFT) and (self.scene.keysDown[Scene.K_LEFT] == False):
+				if (self.facing == Facing.LEFT) and (self.scene.keysDown[Scene.K_LEFT] == None):
 					self.standBehavior()
 		elif self.state == States.JUMP:
 			self.stateTimer = self.stateTimer - 1
