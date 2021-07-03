@@ -52,7 +52,6 @@ class Character(Sprite):
 			if self.scene.keysDown[Scene.K_RIGHT] or self.scene.keysDown[Scene.K_LEFT]:
 				self.walkBehavior()
 			if self.state == States.WALK:
-				print(self.scene.keysDown[Scene.K_RIGHT])
 				if (self.facing == Facing.RIGHT) and (self.scene.keysDown[Scene.K_RIGHT] == None):
 					self.standBehavior()
 				if (self.facing == Facing.LEFT) and (self.scene.keysDown[Scene.K_LEFT] == None):
@@ -91,7 +90,7 @@ class Sean(Character):
 		self.boundAction = Scene.WRAP
 		self.loadAnimation(250, 100, 50, 50) 	# divides the sprite sheet into pieces
 		self.generateAnimationCycles() 	#sets up each "cylce" into rows
-		self.setAnimationSpeed(100)	#sets a QTimer to 100ms
+		self.setAnimationSpeed(10)	#sets a QTimer to 100ms
 		self.playAnimation()	#starts the QTimer
 
 		#make a state for you class
