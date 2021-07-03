@@ -12,7 +12,7 @@ class States(Enum):
 	JUMP = 2
 	STAND = 3
 
-class Facing(Enum):
+class Facing():
 	RIGHT = 0
 	LEFT = 1
 
@@ -52,6 +52,7 @@ class Character(Sprite):
 			if self.scene.keysDown[Scene.K_RIGHT] or self.scene.keysDown[Scene.K_LEFT]:
 				self.walkBehavior()
 			if self.state == States.WALK:
+				print(self.scene.keysdown[Scene.K_RIGHT])
 				if (self.facing == facing.RIGHT) and (self.scene.keysDown[Scene.K_RIGHT] == False):
 					self.standBehavior()
 				if (self.facing == facing.LEFT) and (self.scene.keysDown[Scene.K_LEFT] == False):
@@ -105,7 +106,7 @@ class Sean(Character):
 			self.setCurrentCycle(0)
 			self.playAnimation()
 			self.dx = 4
-		elif self.scene.keysDown[K_LEFT]:
+		elif self.scene.keysDown[Scene.K_LEFT]:
 			self.facing = 1
 			self.setCurrentCycle(1)
 			self.playAnimation()
