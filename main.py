@@ -47,7 +47,7 @@ class Character(Sprite):
 				self.y = self.scene.ground.y - (self.height/2 + self.scene.ground.height / 2)
 				self.standBehavior()
 		elif self.state == States.STAND or self.state == States.WALK:
-			if self.scene.keyDown[Scene.K_SPACE]:
+			if self.scene.keysDown[Scene.K_SPACE]:
 				self.jumpBehavior()
 		elif self.state == States.STAND:
 			if self.scene.keysDown[Scene.K_RIGHT] or self.scene.keysDown[Scene.K_LEFT]:
