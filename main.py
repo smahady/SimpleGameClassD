@@ -302,7 +302,7 @@ class MEEEEEE(Character):
 
 class Spaceship(Sprite):
 	def __init__(self, thisScene):
-		super().__init__(thisScene, "sprites/spaceship.png", 100, 100):
+		super().__init__(thisScene, "sprites/spaceship.png", 100, 100)
 		self.x = 100
 		self.y = 100
 		self.wrap = Scene.BOUNCE
