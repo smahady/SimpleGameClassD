@@ -290,7 +290,7 @@ class MEEEEEE(Character):
 			
 	
 	# Add a method called jumpBehavior. This should set the dy to a negative number (moving up), and set the stateTimer to the number of frames before falling.
-	def jumpBehavior(self()::
+	def jumpBehavior(self):
 		self.stateTimer = 26
 		self.dy = -6	
 		self.state = States.JUMP
