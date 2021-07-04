@@ -235,7 +235,7 @@ class SQUID(Character):
 			self.playAnimation()
 			self.dx = 100
 			self.state = States.WALK
-		elif self.scene.KeysDown[Scene.K_LEFT]:
+		elif self.scene.keysDown[Scene.K_LEFT]:
 			self.facing = 1
 			self.setCurrentCycle = 1
 			self.playAnimation()
