@@ -184,7 +184,7 @@ class IEATTERMITES(Character):
 
 	# This should check if self.scene.keysDown[Scene.K_RIGHT] is True. If so self.facing to 0, self.setCurrentCycle to 0, call the self.playAnimation method. Set the dx to a value between 0 and 10. Set a State to States.WALK
 	# If not check if self.scene.keysDown[Scene.K_LEFT] is True. If so self.facing to 1, self.setCurrentCycle to 1, call the self.playAnimation method. Set the dx to a value between 0 and -10. Set a State to States.WALK
-  def walkbehavior (self):
+  def walkBehavior(self):
     if self.scene.keysDown[Scene. K_RIGHT]:
       self.facing = 0
       self.setCurrentCycle = 0
@@ -273,7 +273,7 @@ class MEEEEEE(Character):
 	# This should check if self.scene.keysDown[Scene.K_RIGHT]is True. If so self.facing to 0, self.setCurrentCycle to 0, call the self.playAnimation method. Set the DX to a value between 0 and 10. Set a State to States.WALK
 	# If not check if self.scene.keysDown[Scene.K_LEFT] is True. If so self.facing to 1, self.setCurrentCycle to 1, call the self.playAnimation method. Set the DX to a value between 0 and -10. Set a State to States.WALK
 	def walkbehavior(self):
-		if self.scene.keysdown[scene.K.RIGHT]:
+		if self.scene.keysdown[Scene.K.RIGHT]:
 			self.facing = 0
 			self.setCurrentSCycle(0)
 			self.playAnimation()
