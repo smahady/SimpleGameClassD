@@ -147,7 +147,7 @@ class slimy(Character):
 			self.setCurrentCycle(0)
 			self.playAnimation()
 			self.dx = 7
-			self.states = states.WALK
+			self.state = Statess.WALK
 		elif self.scene.keysDown[Scene.K_LEFT]:
 			self.facing = 1
 			self.setCurrenrtCycle(1)
@@ -277,13 +277,13 @@ class MEEEEEE(Character):
 			self.facing = 0
 			self.setCurrentSCycle(0)
 			self.playAnimation()
-			self.dx = 5
+			self.dx = 15555
 			self.states = States.WALK
 		elif self.scene.keysDown[Scene.K_LEFT]:
 			self.facing = 1
 			self.setCurrentCycle(1)
 			self.playanimation()
-			dx = -4
+			dx = -15555
 			self.states = States.WALK
 			
 			
