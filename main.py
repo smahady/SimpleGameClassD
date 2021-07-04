@@ -58,7 +58,6 @@ class Character(Sprite):
 					self.standBehavior()
 		elif self.state == States.JUMP:
 			self.stateTimer = self.stateTimer - 1
-			print("Timer: ", self.stateTimer)
 			if self.stateTimer < 1:
 				self.dy = self.dy * -1
 				self.state = States.FALLING
@@ -97,8 +96,8 @@ class Sean(Character):
 		self.state = States.FALLING	#falling
 
 	# Add a method called walkBehavior. 
-	# This should check if self.scene.keysDown[Scene.K_RIGHT]is True. If so self.facing to 0, self.setCurrentCycle to 0, call the self.playAnimation method. Set the DX to a value between 0 and 10
-	# If not check if self.scene.keysDown[Scene.K_LEFT] is True. If so self.facing to 1, self.setCurrentCycle to 1, call the self.playAnimation method. Set the DX to a value between 0 and -10
+	# This should check if self.scene.keysDown[Scene.K_RIGHT]is True. If so self.facing to 0, self.setCurrentCycle to 0, call the self.playAnimation method. Set the DX to a value between 0 and 10. Set a State to States.WALK
+	# If not check if self.scene.keysDown[Scene.K_LEFT] is True. If so self.facing to 1, self.setCurrentCycle to 1, call the self.playAnimation method. Set the DX to a value between 0 and -10. Set a State to States.WALK
 	def walkBehavior(self):
 		if self.scene.keysDown[Scene.K_RIGHT]:
 			self.facing = 0
@@ -119,7 +118,7 @@ class Sean(Character):
 		self.dy = -4	
 		self.state = States.JUMP
 
-'''# newton's sprite
+# newton's sprite
 # 88x64
 # 29x32
 #Newton
@@ -134,13 +133,32 @@ class slimy(Character):
 		self.generateAnimationCycles()
 		self.setAnimationSpeed(100)
 		self.playAnimation()
-		self.state = 0
+		self.state = States.FALLING
 	def update(self):
-		if self.y > 400:
-			self.dy = 0
-			self.y = 400
-		super().update()'''
+		super().update()
 		
+
+	# Add a method called walkBehavior. 
+	# This should check if self.scene.keysDown[Scene.K_RIGHT]is True. If so self.facing to 0, self.setCurrentCycle to 0, call the self.playAnimation method. Set the dx to a value between 0 and 10. Set a State to States.WALK
+	# If not check if self.scene.keysDown[Scene.K_LEFT] is True. If so self.facing to 1, self.setCurrentCycle to 1, call the self.playAnimation method. Set the dx to a value between 0 and -10. Set a State to States.WALK
+	def walkBehavior(self):
+		if self.scene.keysDown[scene.K_Right]:
+			self.facing = 0
+			self.setCurrentCycle(0)
+			self.playAnimation()
+			self.dx = 7
+			self.states = states.WALK
+		elif self.scene.keysDown[scene.K_left]:
+			self.facing = 1
+			self.setCurrenrtCycle(1)
+			self.playAnimation()
+			self.dx = -7
+			self.state = states.WALK
+	# Add a method called jumpBehavior. This should set the dy to a negative number (moving up), and set the stateTimer to the number of frames before falling.
+	def jumpBehavior(self):
+		self.stateTimer = 35
+		self.dy = -7
+		self.state = States.JUMP
 
 # Animal
 #Sheet 480 x 240
@@ -163,10 +181,28 @@ class IEATTERMITES(Character):
     super().update()
 
 	# Add a method called walkBehavior. 
-	# This should check if self.scene.keysDown[Scene.K_RIGHT]is True. If so self.facing to Facing.RIGHT, self.setCurrentCycle to Facing.RIGHT, call the self.playAnimation method. Set the DX to a value between 0 and 10
-	# If not check if self.scene.keysDown[Scene.K_LEFT] is True. If so self.facing to Facing.RIGHT, self.setCurrentCycle to Facing.RIGHT, call the self.playAnimation method. Set the DX to a value between 0 and -10
 
-	# Add a method called jumpBehavior. This should set the dy to a negative number (moving up), and set the stateTimer to the number of frames before falling.
+	# This should check if self.scene.keysDown[Scene.K_RIGHT] is True. If so self.facing to 0, self.setCurrentCycle to 0, call the self.playAnimation method. Set the dx to a value between 0 and 10. Set a State to States.WALK
+	# If not check if self.scene.keysDown[Scene.K_LEFT] is True. If so self.facing to 1, self.setCurrentCycle to 1, call the self.playAnimation method. Set the dx to a value between 0 and -10. Set a State to States.WALK
+  def walkbehavior (self):
+    if self.scene.keysDown[scene. K_RIGHT]:
+      self.facing = 0
+      self.setCurrentCycle = 0
+      self. playAnimation()
+      self.dx = 150
+      self.states = states.WALK 
+    elif self.scene.keysDown[scene. K_RIGHT]:
+      self.facing = 1
+      self.setcurrentCycle =  1
+      self. playAnimation()
+      self.dx = -140
+      self.states = states.WALK
+
+	# Add a method called jumpBehavior. This should set the dy to a negative number (moving up), and set the stateTimer to the number of frames before falling. Set self.state to States.JUMP
+  def jumpBehavior (self):
+    self.dy = -200
+    self.statetimer = 37
+    self.state = states.JUMP
 
 # 112x173
 # Jiayang
@@ -190,11 +226,26 @@ class SQUID(Character):
 		super().update()
 
 	# Add a method called walkBehavior. 
-	# This should check if self.scene.keysDown[Scene.K_RIGHT]is True. If so self.facing to Facing.RIGHT, self.setCurrentCycle to Facing.RIGHT, call the self.playAnimation method. Set the DX to a value between 0 and 10
-	# If not check if self.scene.keysDown[Scene.K_LEFT] is True. If so self.facing to Facing.RIGHT, self.setCurrentCycle to Facing.RIGHT, call the self.playAnimation method. Set the DX to a value between 0 and -10
-
+	# This should check if self.scene.keysDown[Scene.K_RIGHT]is True. If so self.facing to 0, self.setCurrentCycle to 0, call the self.playAnimation method. Set the dx to a value between 0 and 10. Set a State to States.WALK
+	# If not check if self.scene.keysDown[Scene.K_LEFT] is True. If so self.facing to 1, self.setCurrentCycle to 1, call the self.playAnimation method. Set the dx to a value between 0 and -10. Set a State to States.WALK
+	def walkBehavior(self):
+		if self.scene.keysDown[Scene.K_RIGHT]:
+			self.facing = 0
+			self.setCurrentCycle = 0
+			self.playAnimation()
+			self.dx = 100
+			self.state = States.WALK
+		elif self.scene.KeysDown[Scene.K_LEFT]:
+			self.facing = 1
+			self.setCurrentCycle = 1
+			self.playAnimation()
+			self.dx = -100
+			self.state = States.WALK
 	# Add a method called jumpBehavior. This should set the dy to a negative number (moving up), and set the stateTimer to the number of frames before falling.
-    
+    def jumpBehavior(self):
+		  self.dy = -125
+		  self.stateTimer = 99
+		  self.state = States.JUMP
     
 
     
@@ -219,20 +270,60 @@ class MEEEEEE(Character):
 		super().update()
 
 	# Add a method called walkBehavior. 
-	# This should check if self.scene.keysDown[Scene.K_RIGHT]is True. If so self.facing to Facing.RIGHT, self.setCurrentCycle to Facing.RIGHT, call the self.playAnimation method. Set the DX to a value between 0 and 10
-	# If not check if self.scene.keysDown[Scene.K_LEFT] is True. If so self.facing to Facing.RIGHT, self.setCurrentCycle to Facing.RIGHT, call the self.playAnimation method. Set the DX to a value between 0 and -10
-
+	# This should check if self.scene.keysDown[Scene.K_RIGHT]is True. If so self.facing to 0, self.setCurrentCycle to 0, call the self.playAnimation method. Set the DX to a value between 0 and 10. Set a State to States.WALK
+	# If not check if self.scene.keysDown[Scene.K_LEFT] is True. If so self.facing to 1, self.setCurrentCycle to 1, call the self.playAnimation method. Set the DX to a value between 0 and -10. Set a State to States.WALK
+	def walkbehavior(self):
+		if self.scene.keysdown[scene.K.RIGHT]:
+			self.facing = 0
+			self.setCurrentSCycle(0)
+			self.playAnimation()
+			self.dx = 5
+			self.states = States.WALK
+		elif self.scene.keysDown[Scene.K_LEFT]:
+			self.facing = 1
+			self.setCurrentCycle(1)
+			self.playanimation()
+			dx = -4
+			self.states = States.WALK
+			
+			
+			
+	
 	# Add a method called jumpBehavior. This should set the dy to a negative number (moving up), and set the stateTimer to the number of frames before falling.
+	
+	def jumpbehavior
+		self.stateTimer = 26
+		self.dy = -6	
+		self.state = States.JUMP
 
 
 
+
+
+
+class Spaceship(Sprite):
+	def __init__(self, thisScene):
+		super().__init__(thisScene, "sprites/spaceship.png", 100, 100):
+		self.x = 100
+		self.y = 100
+		self.wrap = Scene.BOUNCE
+
+	def update(self):
+		if self.drawX > 0:
+			self.dx = 10
+		if self.drawX > 600:
+			self.dx = -10
+
+		super().update()
+
+		
 
 
 class Game(Scene):
 	def __init__(self):
 		super().__init__(600,600)
 
-		super().__init__(600,600)
+		
 		self.bg0 = Background(self, "sprites/parallax-forest-back-trees.png", 1020, 600, .25, 0)
 		self.bg1 = Background(self, "sprites/parallax-forest-middle-trees.png", 1020, 600, .5, 0)		
 		self.bg2 = Background(self, "sprites/parallax-forest-front-trees.png", 1020, 600, .75, 0)
@@ -245,7 +336,9 @@ class Game(Scene):
 		self.SQUID = SQUID(self)
 		self.MEEEEEE = MEEEEEE(self)
 		self.IEATTERMITES = IEATTERMITES(self)
-		# self.slimy = slimy(self)
+		self.slimy = slimy(self)
+
+		self.spaceship = Spaceship(self)
 		
 
 		
@@ -262,7 +355,9 @@ class Game(Scene):
 		self.SQUID.update()
 		self.IEATTERMITES.update()
 		self.MEEEEEE.update()
-		# self.slimy.update()
+		self.slimy.update()
+
+		self.spaceship.update()
 
 myGame = Game()
 myGame.start()
