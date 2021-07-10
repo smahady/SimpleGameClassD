@@ -137,10 +137,6 @@ class slimy(Character):
 	def update(self, offsetX, offsetY):
 		super().update(offsetX, offsetY)
 		
-
-	# Add a method called walkBehavior. 
-	# This should check if self.scene.keysDown[Scene.K_RIGHT]is True. If so self.facing to 0, self.setCurrentCycle to 0, call the self.playAnimation method. Set the dx to a value between 0 and 10. Set a State to States.WALK
-	# If not check if self.scene.keysDown[Scene.K_LEFT] is True. If so self.facing to 1, self.setCurrentCycle to 1, call the self.playAnimation method. Set the dx to a value between 0 and -10. Set a State to States.WALK
 	def walkBehavior(self):
 		if self.scene.keysDown[Scene.K_RIGHT]:
 			self.facing = 0
@@ -154,7 +150,7 @@ class slimy(Character):
 			self.playAnimation()
 			self.dx = -7
 			self.state = States.WALK
-	# Add a method called jumpBehavior. This should set the dy to a negative number (moving up), and set the stateTimer to the number of frames before falling.
+
 	def jumpBehavior(self):
 		self.stateTimer = 35
 		self.dy = -7
@@ -194,10 +190,10 @@ class IEATTERMITES(Character):
       self.dx = -15
       self.state = States.WALK
 
-  def jumpBehavior (self):
+  def jumpBehavior(self):
+    self.stateTimer = 37
     self.dy = -20
-    self.statetimer = 37
-    self.state = States.JUMP
+    self.state = States.JUMP		
 
 # 112x173
 # Jiayang
@@ -276,10 +272,6 @@ class MEEEEEE(Character):
 			self.dx = -15
 			self.state = States.WALK
 			
-			
-			
-	
-	# Add a method called jumpBehavior. This should set the dy to a negative number (moving up), and set the stateTimer to the number of frames before falling.
 	def jumpBehavior(self):
 		self.stateTimer = 26
 		self.dy = -6	
