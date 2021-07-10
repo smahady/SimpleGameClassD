@@ -196,7 +196,7 @@ class IEATTERMITES(Character):
       self.state = States.WALK
 
   def jumpBehavior (self):
-    self.dy = -200
+    self.dy = -20
     self.statetimer = 37
     self.state = States.JUMP
 
