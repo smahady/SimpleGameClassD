@@ -348,7 +348,7 @@ class Game(Scene):
 		
 		self.bg0.update(self.offsetX, self.offsetY)
 		self.bg1.update(self.offsetX, self.offsetY)
-		self.bg2.update(self.offsetX, self.offsetY))
+		self.bg2.update(self.offsetX, self.offsetY)
 		self.bg3.update(self.offsetX, self.offsetY)
 
 		self.ground.update(self.offsetX, self.offsetY)
