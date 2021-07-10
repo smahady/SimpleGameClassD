@@ -41,7 +41,7 @@ class Character(Sprite):
 		self.stateTimer = 0
 		self.dy = 7 
 		
-	def update(self):
+	def update(self, offsetX, offsetY):
 		if self.state == States.FALLING:
 			if self.scene.ground.collidesWith(self):
 				self.y = self.scene.ground.y - (self.height/2 + self.scene.ground.height / 2)
@@ -61,7 +61,7 @@ class Character(Sprite):
 			if self.stateTimer < 1:
 				self.dy = self.dy * -1
 				self.state = States.FALLING
-		super().update()
+		super().update(offsetX, offsetY)
 
 	def standBehavior(self):
 		self.dy = 0
@@ -134,8 +134,8 @@ class slimy(Character):
 		self.setAnimationSpeed(100)
 		self.playAnimation()
 		self.state = States.FALLING
-	def update(self):
-		super().update()
+	def update(self, offsetX, offsetY):
+		super().update(offsetX, offsetY)
 		
 
 	# Add a method called walkBehavior. 
@@ -177,8 +177,8 @@ class IEATTERMITES(Character):
     self.generateAnimationCycles()
     self.setAnimationSpeed(2147483647) #this is the highest number this will take
     self.playAnimation()  
-  def update(self):
-    super().update()
+  def update(self, offsetX, offsetY):
+    super().update(offsetX, offsetY)
 
 	# Add a method called walkBehavior. 
 
@@ -222,8 +222,8 @@ class SQUID(Character):
 		self.generateAnimationCycles()
 		self.setAnimationSpeed(300)
 		self.playAnimation()
-	def update(self):
-		super().update()
+	def update(self, offsetX, offsetY):
+		super().update(offsetX, offsetY)
 
 	# Add a method called walkBehavior. 
 	# This should check if self.scene.keysDown[Scene.K_RIGHT]is True. If so self.facing to 0, self.setCurrentCycle to 0, call the self.playAnimation method. Set the dx to a value between 0 and 10. Set a State to States.WALK
@@ -322,6 +322,9 @@ class Game(Scene):
 	def __init__(self):
 		super().__init__(600,600)
 
+
+		self.offsetX = 20
+		self.offsetY = 20
 		
 		self.bg0 = Background(self, "sprites/parallax-forest-back-trees.png", 1020, 600, .25, 0)
 		self.bg1 = Background(self, "sprites/parallax-forest-middle-trees.png", 1020, 600, .5, 0)		
@@ -343,20 +346,20 @@ class Game(Scene):
 		
 	def updateGame(self):
 		
-		self.bg0.update()
-		self.bg1.update()
-		self.bg2.update()
-		self.bg3.update()
+		self.bg0.update(self.offsetX, self.offsetY)
+		self.bg1.update(self.offsetX, self.offsetY)
+		self.bg2.update(self.offsetX, self.offsetY))
+		self.bg3.update(self.offsetX, self.offsetY)
 
-		self.ground.update()
+		self.ground.update(self.offsetX, self.offsetY)
 
-		self.sean.update()
-		self.SQUID.update()
-		self.IEATTERMITES.update()
-		self.MEEEEEE.update()
-		self.slimy.update()
+		self.sean.update(self.offsetX, self.offsetY)
+		self.SQUID.update(self.offsetX, self.offsetY)
+		self.IEATTERMITES.update(self.offsetX, self.offsetY)
+		self.MEEEEEE.update(self.offsetX, self.offsetY)
+		self.slimy.update(self.offsetX, self.offsetY)
 
-		self.spaceship.update()
+		self.spaceship.update(self.offsetX, self.offsetY)
 
 myGame = Game()
 myGame.start()
