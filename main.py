@@ -230,7 +230,7 @@ class SQUID(Character):
 			self.state = States.WALK
 		elif self.scene.keysDown[Scene.K_LEFT]:
 			self.facing = Facing.LEFT
-			self.setCurrentCycle(Facing.LEFT)
+			self.setCurrentCycle(3)
 			self.playAnimation()
 			self.dx = -10
 			self.state = States.WALK
