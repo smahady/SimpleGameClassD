@@ -256,7 +256,7 @@ class MEEEEEE(Character):
 		self.boundAction = Scene.WRAP
 		self.loadAnimation(400, 144 , 100, 72)
 		self.generateAnimationCycles()
-		self.setAnimationSpeed(100)
+		self.setAnimationSpeed(50)
 		self.playAnimation()
 		self.state = States.FALLING
 	def update(self, offsetX, offsetY):
@@ -265,13 +265,13 @@ class MEEEEEE(Character):
 	def walkBehavior(self):
 		if self.scene.keysDown[Scene.K_RIGHT]:
 			self.facing = Facing.RIGHT
-			self.setCurrentCycle(0)
+			self.setCurrentCycle(Facing.RIGHT)
 			self.playAnimation()
 			self.dx = 15
 			self.state = States.WALK
 		elif self.scene.keysDown[Scene.K_LEFT]:
 			self.facing = Facing.LEFT
-			self.setCurrentCycle(1)
+			self.setCurrentCycle(Facing.LEFT)
 			self.playAnimation()
 			self.dx = -15
 			self.state = States.WALK
