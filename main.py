@@ -150,7 +150,7 @@ class slimy(Character):
 			self.state = States.WALK
 		elif self.scene.keysDown[Scene.K_LEFT]:
 			self.facing = 1
-			self.setCurrenrtCycle(1)
+			self.setCurrentCycle(1)
 			self.playAnimation()
 			self.dx = -7
 			self.state = States.WALK
