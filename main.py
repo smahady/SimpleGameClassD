@@ -299,21 +299,30 @@ class MEEEEEE(Character):
 
 
 
-
 class Spaceship(Sprite):
 	def __init__(self, thisScene):
-		super().__init__(thisScene, "sprites/spaceship.png", 100, 100)
-		self.x = 100
+		super().__init__(thisScene, "sprites/spaceship100.png", 100, 100)
+		self.x = 300
 		self.y = 100
-		self.wrap = Scene.BOUNCE
+		self.dx = 6
+		self.timer = 60
+		self.enemies = []
+	def checkBounds(self):
 
-	def update(self):
-		if self.drawX > 0:
-			self.dx = 10
-		if self.drawX > 600:
-			self.dx = -10
+		if self.drawX < 0:
+			self.dx = 6
+		if self.drawX > 550:
+			self.dx = -6
+		self.timer -= 1
+		if self.timer < 1:
+			self.timer = 60
+			self.enemySpawn()
 
-		super().update()
+		#for enemy in self.enemies:
+		#	enemy.update(self.scene.offsetX, self.scene.offsetY)
+
+	def enemySpawn(self):
+		pass
 
 		
 
