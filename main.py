@@ -185,13 +185,13 @@ class IEATTERMITES(Character):
     if self.scene.keysDown[Scene. K_RIGHT]:
       self.facing = Facing.RIGHT
       self.setCurrentCycle(Facing.RIGHT)
-      self. playAnimation()
+      self.playAnimation()
       self.dx = 15
       self.state = States.WALK 
     elif self.scene.keysDown[Scene. K_RIGHT]:
       self.facing = Facing.LEFT
-      self.setcurrentCycle(Facing.LEFT)
-      self. playAnimation()
+      self.setCurrentCycle(Facing.LEFT)
+      self.playAnimation()
       self.dx = -15
       self.state = States.WALK
 
