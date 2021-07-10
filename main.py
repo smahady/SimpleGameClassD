@@ -175,7 +175,7 @@ class IEATTERMITES(Character):
 		#loadAnimation(sheetX, sheetY, cellX, cellY)
     self.loadAnimation(480, 240, 80, 60)
     self.generateAnimationCycles()
-    self.setAnimationSpeed(2147483647) #this is the highest number this will take
+    self.setAnimationSpeed(45) #this is the highest number this will take
     self.playAnimation()  
   def update(self, offsetX, offsetY):
     super().update(offsetX, offsetY)
@@ -183,14 +183,14 @@ class IEATTERMITES(Character):
 
   def walkBehavior(self):
     if self.scene.keysDown[Scene. K_RIGHT]:
-      self.facing = 0
-      self.setCurrentCycle = 0
+      self.facing = Facing.RIGHT
+      self.setCurrentCycle(Facing.RIGHT)
       self. playAnimation()
       self.dx = 15
       self.state = States.WALK 
     elif self.scene.keysDown[Scene. K_RIGHT]:
-      self.facing = 1
-      self.setcurrentCycle =  1
+      self.facing = Facing.LEFT
+      self.setcurrentCycle(Facing.LEFT)
       self. playAnimation()
       self.dx = -15
       self.state = States.WALK
