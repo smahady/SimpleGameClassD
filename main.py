@@ -268,13 +268,13 @@ class MEEEEEE(Character):
 			self.setCurrentCycle(0)
 			self.playAnimation()
 			self.dx = 15
-			self.states = States.WALK
+			self.state = States.WALK
 		elif self.scene.keysDown[Scene.K_LEFT]:
 			self.facing = Facing.LEFT
 			self.setCurrentCycle(1)
 			self.playAnimation()
 			self.dx = -15
-			self.states = States.WALK
+			self.state = States.WALK
 			
 			
 			
