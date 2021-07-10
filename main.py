@@ -231,11 +231,12 @@ class SQUID(Character):
 			self.dx = -10
 			self.state = States.WALK
 	# Add a method called jumpBehavior. This should set the dy to a negative number (moving up), and set the stateTimer to the number of frames before falling.
-		def jumpBehavior(self):
-			self.dy = -125
-			self.stateTimer = 99
-			self.state = States.JUMP
-    
+	def jumpBehavior(self):
+		self.dy = -125
+		self.stateTimer = 99
+		self.state = States.JUMP
+
+
 
     
  
@@ -252,7 +253,7 @@ class MEEEEEE(Character):
 		self.boundAction = Scene.WRAP
 		self.loadAnimation(400, 144 , 100, 72)
 		self.generateAnimationCycles()
-		self.setAnimationSpeed(50)
+		self.setAnimationSpeed(30)
 		self.playAnimation()
 		self.state = States.FALLING
 	def update(self, offsetX, offsetY):
