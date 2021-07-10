@@ -227,14 +227,14 @@ class SQUID(Character):
 	# If not check if self.scene.keysDown[Scene.K_LEFT] is True. If so self.facing to 1, self.setCurrentCycle to 1, call the self.playAnimation method. Set the dx to a value between 0 and -10. Set a State to States.WALK
 	def walkBehavior(self):
 		if self.scene.keysDown[Scene.K_RIGHT]:
-			self.facing = 0
-			self.setCurrentCycle = 0
+			self.facing = Facing.RIGHT
+			self.setCurrentCycle(Facing.RIGHT)
 			self.playAnimation()
 			self.dx = 10
 			self.state = States.WALK
 		elif self.scene.keysDown[Scene.K_LEFT]:
-			self.facing = 1
-			self.setCurrentCycle = 1
+			self.facing = Facing.LEFT
+			self.setCurrentCycle(Facing.LEFT)
 			self.playAnimation()
 			self.dx = -10
 			self.state = States.WALK
@@ -268,13 +268,13 @@ class MEEEEEE(Character):
 
 	def walkBehavior(self):
 		if self.scene.keysDown[Scene.K_RIGHT]:
-			self.facing = 0
+			self.facing = Facing.RIGHT
 			self.setCurrentCycle(0)
 			self.playAnimation()
 			self.dx = 15
 			self.states = States.WALK
 		elif self.scene.keysDown[Scene.K_LEFT]:
-			self.facing = 1
+			self.facing = Facing.LEFT
 			self.setCurrentCycle(1)
 			self.playAnimation()
 			self.dx = -15
