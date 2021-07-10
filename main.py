@@ -175,7 +175,7 @@ class IEATTERMITES(Character):
 		#loadAnimation(sheetX, sheetY, cellX, cellY)
     self.loadAnimation(480, 240, 80, 60)
     self.generateAnimationCycles()
-    self.setAnimationSpeed(45) #this is the highest number this will take
+    self.setAnimationSpeed(44) #this is the highest number this will take
     self.playAnimation()  
   def update(self, offsetX, offsetY):
     super().update(offsetX, offsetY)
