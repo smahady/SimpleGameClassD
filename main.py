@@ -269,21 +269,18 @@ class MEEEEEE(Character):
 	def update(self, offsetX, offsetY):
 		super().update(offsetX, offsetY)
 
-	# Add a method called walkBehavior. 
-	# This should check if self.scene.keysDown[Scene.K_RIGHT]is True. If so self.facing to 0, self.setCurrentCycle to 0, call the self.playAnimation method. Set the DX to a value between 0 and 10. Set a State to States.WALK
-	# If not check if self.scene.keysDown[Scene.K_LEFT] is True. If so self.facing to 1, self.setCurrentCycle to 1, call the self.playAnimation method. Set the DX to a value between 0 and -10. Set a State to States.WALK
 	def walkBehavior(self):
 		if self.scene.keysDown[Scene.K_RIGHT]:
 			self.facing = 0
 			self.setCurrentCycle(0)
 			self.playAnimation()
-			self.dx = 1555
+			self.dx = 15
 			self.states = States.WALK
 		elif self.scene.keysDown[Scene.K_LEFT]:
 			self.facing = 1
 			self.setCurrentCycle(1)
 			self.playAnimation()
-			dx = -1555
+			dx = -15
 			self.states = States.WALK
 			
 			
