@@ -174,7 +174,7 @@ class IEATTERMITES(Character):
 		#loadAnimation(sheetX, sheetY, cellX, cellY)
     self.loadAnimation(480, 240, 80, 60)
     self.generateAnimationCycles()
-    self.setAnimationSpeed(43) #this is the highest number this will take
+    self.setAnimationSpeed(39) #this is the highest number this will take
     self.playAnimation()  
   def update(self, offsetX, offsetY):
     super().update(offsetX, offsetY)
@@ -256,7 +256,7 @@ class MEEEEEE(Character):
 		self.boundAction = Scene.WRAP
 		self.loadAnimation(400, 144 , 100, 72)
 		self.generateAnimationCycles()
-		self.setAnimationSpeed(50)
+		self.setAnimationSpeed(39)
 		self.playAnimation()
 		self.state = States.FALLING
 	def update(self, offsetX, offsetY):
