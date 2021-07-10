@@ -182,13 +182,13 @@ class IEATTERMITES(Character):
 
 
   def walkBehavior(self):
-    if self.scene.keysDown[Scene. K_RIGHT]:
+    if self.scene.keysDown[Scene.K_RIGHT]:
       self.facing = Facing.RIGHT
       self.setCurrentCycle(Facing.RIGHT)
       self.playAnimation()
       self.dx = 15
       self.state = States.WALK 
-    elif self.scene.keysDown[Scene. K_RIGHT]:
+    elif self.scene.keysDown[Scene.K_LEFT]:
       self.facing = Facing.LEFT
       self.setCurrentCycle(Facing.LEFT)
       self.playAnimation()
