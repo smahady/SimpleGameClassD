@@ -282,7 +282,7 @@ class MEEEEEE(Character):
 		elif self.scene.keysDown[Scene.K_LEFT]:
 			self.facing = 1
 			self.setCurrentCycle(1)
-			self.playanimation()
+			self.playAnimation()
 			dx = -1555
 			self.states = States.WALK
 			
