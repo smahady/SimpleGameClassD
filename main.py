@@ -256,7 +256,7 @@ class MEEEEEE(Character):
 		self.boundAction = Scene.WRAP
 		self.loadAnimation(400, 144 , 100, 72)
 		self.generateAnimationCycles()
-		self.setAnimationSpeed(35)
+		self.setAnimationSpeed(50)
 		self.playAnimation()
 		self.state = States.FALLING
 	def update(self, offsetX, offsetY):
