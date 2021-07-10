@@ -175,7 +175,7 @@ class IEATTERMITES(Character):
 		#loadAnimation(sheetX, sheetY, cellX, cellY)
     self.loadAnimation(480, 240, 80, 60)
     self.generateAnimationCycles()
-    self.setAnimationSpeed(44) #this is the highest number this will take
+    self.setAnimationSpeed(43) #this is the highest number this will take
     self.playAnimation()  
   def update(self, offsetX, offsetY):
     super().update(offsetX, offsetY)
@@ -195,7 +195,6 @@ class IEATTERMITES(Character):
       self.dx = -15
       self.state = States.WALK
 
-	# Add a method called jumpBehavior. This should set the dy to a negative number (moving up), and set the stateTimer to the number of frames before falling. Set self.state to States.JUMP
   def jumpBehavior (self):
     self.dy = -200
     self.statetimer = 37
@@ -222,9 +221,7 @@ class SQUID(Character):
 	def update(self, offsetX, offsetY):
 		super().update(offsetX, offsetY)
 
-	# Add a method called walkBehavior. 
-	# This should check if self.scene.keysDown[Scene.K_RIGHT]is True. If so self.facing to 0, self.setCurrentCycle to 0, call the self.playAnimation method. Set the dx to a value between 0 and 10. Set a State to States.WALK
-	# If not check if self.scene.keysDown[Scene.K_LEFT] is True. If so self.facing to 1, self.setCurrentCycle to 1, call the self.playAnimation method. Set the dx to a value between 0 and -10. Set a State to States.WALK
+
 	def walkBehavior(self):
 		if self.scene.keysDown[Scene.K_RIGHT]:
 			self.facing = Facing.RIGHT
