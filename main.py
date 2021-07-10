@@ -275,15 +275,15 @@ class MEEEEEE(Character):
 	def walkBehavior(self):
 		if self.scene.keysDown[Scene.K_RIGHT]:
 			self.facing = 0
-			self.setCurrentSCycle(0)
+			self.setCurrentCycle(0)
 			self.playAnimation()
-			self.dx = 15555
+			self.dx = 1555
 			self.states = States.WALK
 		elif self.scene.keysDown[Scene.K_LEFT]:
 			self.facing = 1
 			self.setCurrentCycle(1)
 			self.playanimation()
-			dx = -15555
+			dx = -1555
 			self.states = States.WALK
 			
 			
