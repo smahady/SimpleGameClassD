@@ -264,14 +264,14 @@ class MEEEEEE(Character):
 
 	def walkBehavior(self):
 		if self.scene.keysDown[Scene.K_RIGHT]:
-			self.facing = Facing.RIGHT
-			self.setCurrentCycle(Facing.RIGHT)
+			self.facing = 0
+			self.setCurrentCycle(0)
 			self.playAnimation()
 			self.dx = 15
 			self.state = States.WALK
 		elif self.scene.keysDown[Scene.K_LEFT]:
-			self.facing = Facing.LEFT
-			self.setCurrentCycle(Facing.LEFT)
+			self.facing = 1
+			self.setCurrentCycle(1)
 			self.playAnimation()
 			self.dx = -15
 			self.state = States.WALK
