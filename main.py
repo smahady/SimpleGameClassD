@@ -29,9 +29,9 @@ class Ground(Block):
 		self.x = 0
 		self.y = 500
 		
-	def update(self):
+	def update(self, offsetX, offsetY):
 				
-		super().update()
+		super().update(offsetX, offsetY)
 
 class Character(Sprite):
 	def __init__(self, thisScene, sprite, x, y):
@@ -266,8 +266,8 @@ class MEEEEEE(Character):
 		self.setAnimationSpeed(100)
 		self.playAnimation()
 		self.state = States.FALLING
-	def update(self):
-		super().update()
+	def update(self, offsetX, offsetY):
+		super().update(offsetX, offsetY)
 
 	# Add a method called walkBehavior. 
 	# This should check if self.scene.keysDown[Scene.K_RIGHT]is True. If so self.facing to 0, self.setCurrentCycle to 0, call the self.playAnimation method. Set the DX to a value between 0 and 10. Set a State to States.WALK
