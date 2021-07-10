@@ -180,22 +180,19 @@ class IEATTERMITES(Character):
   def update(self, offsetX, offsetY):
     super().update(offsetX, offsetY)
 
-	# Add a method called walkBehavior. 
 
-	# This should check if self.scene.keysDown[Scene.K_RIGHT] is True. If so self.facing to 0, self.setCurrentCycle to 0, call the self.playAnimation method. Set the dx to a value between 0 and 10. Set a State to States.WALK
-	# If not check if self.scene.keysDown[Scene.K_LEFT] is True. If so self.facing to 1, self.setCurrentCycle to 1, call the self.playAnimation method. Set the dx to a value between 0 and -10. Set a State to States.WALK
   def walkBehavior(self):
     if self.scene.keysDown[Scene. K_RIGHT]:
       self.facing = 0
       self.setCurrentCycle = 0
       self. playAnimation()
-      self.dx = 150
+      self.dx = 15
       self.state = States.WALK 
     elif self.scene.keysDown[Scene. K_RIGHT]:
       self.facing = 1
       self.setcurrentCycle =  1
       self. playAnimation()
-      self.dx = -140
+      self.dx = -15
       self.state = States.WALK
 
 	# Add a method called jumpBehavior. This should set the dy to a negative number (moving up), and set the stateTimer to the number of frames before falling. Set self.state to States.JUMP
@@ -233,13 +230,13 @@ class SQUID(Character):
 			self.facing = 0
 			self.setCurrentCycle = 0
 			self.playAnimation()
-			self.dx = 100
+			self.dx = 10
 			self.state = States.WALK
 		elif self.scene.keysDown[Scene.K_LEFT]:
 			self.facing = 1
 			self.setCurrentCycle = 1
 			self.playAnimation()
-			self.dx = -100
+			self.dx = -10
 			self.state = States.WALK
 	# Add a method called jumpBehavior. This should set the dy to a negative number (moving up), and set the stateTimer to the number of frames before falling.
 		def jumpBehavior(self):
