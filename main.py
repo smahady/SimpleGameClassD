@@ -280,7 +280,7 @@ class MEEEEEE(Character):
 			self.facing = 1
 			self.setCurrentCycle(1)
 			self.playAnimation()
-			dx = -15
+			self.dx = -15
 			self.states = States.WALK
 			
 			
