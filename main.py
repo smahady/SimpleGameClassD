@@ -232,7 +232,7 @@ class SQUID(Character):
 			self.state = States.WALK
 	# Add a method called jumpBehavior. This should set the dy to a negative number (moving up), and set the stateTimer to the number of frames before falling.
 	def jumpBehavior(self):
-		self.dy = -125
+		self.dy = -12
 		self.stateTimer = 99
 		self.state = States.JUMP
 
