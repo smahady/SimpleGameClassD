@@ -29,6 +29,7 @@ class Sprite():
 		self.tick = 0
 		self.animC = False
 		self.debug = False
+		self.moveAngle = 0
 
 		
 		# set bound action
@@ -38,8 +39,8 @@ class Sprite():
 		self.rotated = False
 		
 		# if tiled sprite set up tile
-		#if type(imageFile) == type(list): <better
-		#if type(imageFile) == list: <worst
+		#if type(imageFile) == type(list): #better
+		#if type(imageFile) == list: #worst
 		if isinstance(imageFile, list): 
 			self.xLength = len(imageFile)
 			self.yLength = len(imageFile[0])
@@ -75,7 +76,7 @@ class Sprite():
 	# changeImage(imgFile) – Changes the image to the image file.  	
 	def changeImage(self, imageFile):
 		
-		self.src = QImage(self.width, self.height, QImage.Format_RGB32)
+		self.src = QImage(self.width, self.height, QImage.Format_ARGB32)
 		qimage = QImage(imageFile)
 		scaled = qimage.scaled(self.width, self.height)
 		
@@ -427,8 +428,8 @@ class Sprite():
 	
 
 	# distanceTo(sprite) determines the distance between two sprites, in pixels
-	def distanceTo(sprite):
-		distance = (int((math.sqrt((sprite.x - self.x)^2 + (sprite.y - self.y)^2))))
+	def distanceTo(self, sprite):
+		distance = (int((math.sqrt((sprite.x - self.x)**2 + (sprite.y - self.y)**2))))
 		
 		return distance
 
