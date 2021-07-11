@@ -414,6 +414,7 @@ class Game(Scene):
 
 		
 	def updateGame(self):
+		self.camera.update()
 		
 		self.bg0.update(self.offsetX, self.offsetY)
 		self.bg1.update(self.offsetX, self.offsetY)
@@ -429,6 +430,12 @@ class Game(Scene):
 		self.slimy.update(self.offsetX, self.offsetY)
 
 		self.spaceship.update(self.offsetX, self.offsetY)
+
+		# collision
+		for enemy in self.spaceship.enemies:
+			if enemy.distanceTo(self.main) < 50:
+				print("You died!")
+				self.stop()		
 
 myGame = Game()
 myGame.start()
