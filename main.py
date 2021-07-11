@@ -370,11 +370,36 @@ class GroundEnemy(BaseEnemy):
 
 class FlyingEnemy(BaseEnemy):
 	def __init__(self, thisScene, x, y):
-		super().__init__(thisScene, "sprites/egg3.png", 128, 128, x, y)
+		super().__init__(thisScene, "sprites/birb.png", 100, 73, x, y)
 	def update(self, offsetX, offsetY):
 		super().update(offsetX, offsetY)
 	def makeDecision(self):
-		self.dy = 3
+		self.timer = 15
+		decision = random.randint(0,1)
+		if decision ==0:
+			self.dx = random.randint(-5, 5)
+			self.dy = random.randint(-5, 5)
+		# home in on main
+		if decision == 1:
+			# movement if the main character is to the left
+			if self.scene.main.x < self.x:
+				movementX = -1
+			# movement if the main character is to the right - Jiayang
+			if self.scene.main.x > self.x:
+				movementX = 1
+			# movement if the main character underneath
+			if self.scene.main.y < self.y:
+				movementY = -1		
+
+			# movement if the main character above - Niuniu	
+      if self.scene.main.y > self.y:
+        movementY = 1
+
+
+			# move at random speed
+			self.dx = (random.randint(0,5) * movementX)
+			self.dy = (random.randint(0,5) * movementY)
+
 
 
 
@@ -395,7 +420,8 @@ class Game(Scene):
 		
 		self.bg0 = Background(self, "sprites/parallax-forest-back-trees.png", 1020, 600, .25, 0)
 		self.bg1 = Background(self, "sprites/parallax-forest-middle-trees.png", 1020, 600, .5, 0)		
-		self.bg2 = Background(self, "sprites/parallax-forest-front-trees.png", 1020, 600, .75, 0)
+		self.bg2 = Background(self, "sprites/parallax-forest-front-trees
+    .png", 1020, 600, .75, 0)
 		self.bg3 = Background(self, "sprites/parallax-forest-lights.png", 1020, 600, 1, 0)		
 
 
