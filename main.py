@@ -5,6 +5,7 @@ from SimpleGame.Background import Background
 import sys
 from PyQt5.QtWidgets import QApplication
 from enum import Enum
+import random
 
 class States(Enum):
 	FALLING = 0
@@ -19,7 +20,26 @@ class Facing():
 
 app = QApplication(sys.argv)
 
+class Camera():
+	def __init__(self, thisScene):
+		self.viewWidth = Scene.width
+		self.viewHeight = Scene.height
+		self.scene = thisScene
 
+	def follow(self, sprite):
+		self.sprite = sprite
+
+	def update(self):
+		if self.sprite.drawX < 250:
+			if self.sprite.x < 300:
+				self.sprite.x = 300
+			else:
+				self.scene.offsetX -= 6
+		if self.sprite.drawX > (350):
+			if self.sprite.x > (26*120):
+				self.sprite.x = (26*120)
+			else:
+				self.scene.offsetX += 6
 
 
 class Ground(Block):
@@ -301,11 +321,63 @@ class Spaceship(Sprite):
 			self.timer = 60
 			self.enemySpawn()
 
-		#for enemy in self.enemies:
-		#	enemy.update(self.scene.offsetX, self.scene.offsetY)
+		for enemy in self.enemies:
+			enemy.update(self.scene.offsetX, self.scene.offsetY)
 
 	def enemySpawn(self):
+		temp = random.randint(0,2)
+		newEnemy = 0
+		if temp == 0:
+			newEnemy = Enemy(self.scene, self.x, self.y)
+		elif temp==1:
+			newEnemy = GroundEnemy(self.scene, self.x, self.y)
+		elif temp ==2:
+			newEnemy = FlyingEnemy(self.scene, self.x, self.y)
+		self.enemies.append(newEnemy)
+
+# Abstract base class
+class BaseEnemy(Sprite):
+	def __init__(self, thisScene, file, width, height, x, y):
+		super().__init__(thisScene, file, width, height)
+		self.setBoundAction(Scene.DIE) #WRAP, BOUNCE, CONTINUE, DIE, STOP
+		self.x = x
+		self.y = y
+		self.dy = 3
+		self.timer = 30	#determines how often the enemy makes a choice
+	def update(self, offsetX, offsetY):
+		self.timer -= 1
+		if self.timer < 1:
+			self.makeDecision()
+		super().update(offsetX, offsetY)
+	def makeDecision(self):
 		pass
+
+class Enemy(BaseEnemy):
+	def __init__(self, thisScene, x, y):
+		super().__init__(thisScene, "sprites/egg3.png", 128, 128, x, y)
+	def update(self, offsetX, offsetY):
+		super().ypdate(offsetX, offsetY)
+	def makeDecision(self):
+		self.dy = 3
+
+class GroundEnemy(BaseEnemy):
+	def __init__(self, thisScene, x, y):
+		super().__init__(thisScene, "sprites/egg3.png", 128, 128, x, y)
+	def update(self, offsetX, offsetY):
+		super().ypdate(offsetX, offsetY)
+	def makeDecision(self):
+		self.dy = 3
+
+class FlyingEnemy(BaseEnemy):
+	def __init__(self, thisScene, x, y):
+		super().__init__(thisScene, "sprites/egg3.png", 128, 128, x, y)
+	def update(self, offsetX, offsetY):
+		super().ypdate(offsetX, offsetY)
+	def makeDecision(self):
+		self.dy = 3
+
+
+
 
 		
 
@@ -314,6 +386,9 @@ class Game(Scene):
 	def __init__(self):
 		super().__init__(600,600)
 
+		self.camera = Camera(self)
+
+		self.changeBoundSize((25*120), 600)
 
 		self.offsetX = 20
 		self.offsetY = 20
@@ -326,13 +401,15 @@ class Game(Scene):
 
 		self.ground = Ground(self)
 
-		self.sean = Sean(self)
+		self.main = Sean(self)
 		self.SQUID = SQUID(self)
 		self.MEEEEEE = MEEEEEE(self)
 		self.IEATTERMITES = IEATTERMITES(self)
 		self.slimy = slimy(self)
 
 		self.spaceship = Spaceship(self)
+
+		self.camera.follow(self.main)
 		
 
 		
@@ -345,7 +422,7 @@ class Game(Scene):
 
 		self.ground.update(self.offsetX, self.offsetY)
 
-		self.sean.update(self.offsetX, self.offsetY)
+		self.main.update(self.offsetX, self.offsetY)
 		self.SQUID.update(self.offsetX, self.offsetY)
 		self.IEATTERMITES.update(self.offsetX, self.offsetY)
 		self.MEEEEEE.update(self.offsetX, self.offsetY)
