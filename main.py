@@ -356,7 +356,7 @@ class Enemy(BaseEnemy):
 	def __init__(self, thisScene, x, y):
 		super().__init__(thisScene, "sprites/egg3.png", 128, 128, x, y)
 	def update(self, offsetX, offsetY):
-		super().ypdate(offsetX, offsetY)
+		super().update(offsetX, offsetY)
 	def makeDecision(self):
 		self.dy = 3
 
@@ -364,7 +364,7 @@ class GroundEnemy(BaseEnemy):
 	def __init__(self, thisScene, x, y):
 		super().__init__(thisScene, "sprites/egg3.png", 128, 128, x, y)
 	def update(self, offsetX, offsetY):
-		super().ypdate(offsetX, offsetY)
+		super().update(offsetX, offsetY)
 	def makeDecision(self):
 		self.dy = 3
 
@@ -372,7 +372,7 @@ class FlyingEnemy(BaseEnemy):
 	def __init__(self, thisScene, x, y):
 		super().__init__(thisScene, "sprites/egg3.png", 128, 128, x, y)
 	def update(self, offsetX, offsetY):
-		super().ypdate(offsetX, offsetY)
+		super().update(offsetX, offsetY)
 	def makeDecision(self):
 		self.dy = 3
 
