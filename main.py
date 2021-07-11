@@ -392,8 +392,8 @@ class FlyingEnemy(BaseEnemy):
 				movementY = -1		
 
 			# movement if the main character above - Niuniu	
-      if self.scene.main.y > self.y:
-        movementY = 1
+			if self.scene.main.y > self.y:
+				movementY = 1
 
 
 			# move at random speed
